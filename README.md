@@ -25,6 +25,8 @@ ln -s ~/skills/codex-build ~/.codex/skills
 
 Both symlinks can coexist on the same machine. The source tree is canonically Claude-Code-native; `migrate_codex.py` produces a parallel Codex-shaped mirror under `codex-build/` (regenerated, not committed). See [migrate_codex.py](migrate_codex.py) for what it rewrites — chiefly: `Skill(...)` chain calls → `/skill-name` textual handoffs, `~/.claude/` → `~/.codex/` paths, `CLAUDE.md` → `AGENTS.md`.
 
+Do not edit `codex-build/` by hand. It is disposable generated output; make changes in the Claude-native source tree, then run `uv run python migrate_codex.py` again. `uv run python migrate_codex.py --verify` checks the generated tree for stale Claude/Codex compatibility drift.
+
 Each skill becomes a slash command (`/pentester`, `/web-exploit`, `/api-security`, …). Start the agent from the directory where you want artifacts written, then invoke a skill.
 
 ## Requirements

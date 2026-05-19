@@ -36,6 +36,7 @@ Thumbs.db
 codex-build/
 
 # Local Configuration
+.claude/
 .env
 .env.local
 config.local.*
